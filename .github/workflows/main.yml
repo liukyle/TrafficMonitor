@@ -1,5 +1,16 @@
 name: Release CI
-on: push
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - '**.txt'
+      - '.github/**'
+      - '.idea/**'
+      - '!.github/workflows/**'
+
 jobs:
   x64_build:
     runs-on: windows-latest
